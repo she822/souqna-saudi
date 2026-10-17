@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101d36">
+<meta name="description" content="سوقنا السعودي - سوق الإعلانات المبوبة في جميع مناطق المملكة.">
+<title>سوقنا السعودي | سوقك في كل المملكة</title>
+<style>
+:root{--navy:#101d36;--gold:#d9ad55;--bg:#f4f6fa;--text:#172033}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Tahoma,sans-serif;background:var(--bg);color:var(--text)}
+header{background:var(--navy);color:#fff;padding:20px 16px}
+nav,.wrap{max-width:1050px;margin:auto}
+nav{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.logo{font-size:25px;font-weight:800;color:var(--gold)}
+.logo span{color:#fff}
+nav a{color:#fff;text-decoration:none;margin:5px;font-size:14px}.nav-add{background:var(--gold);color:#172033!important;padding:10px 13px;border-radius:9px;font-weight:bold}
+.hero{background:linear-gradient(135deg,#101d36,#243b60);color:#fff;text-align:center;padding:44px 16px}
+.hero h1{font-size:clamp(27px,5vw,42px);margin:0 0 12px}
+.hero p{line-height:1.9;color:#e4e9f2}
+.search{display:flex;gap:8px;max-width:680px;margin:22px auto 0;flex-wrap:wrap}
+input,select,textarea{font:inherit;border:1px solid #d7dce5;border-radius:9px;padding:13px;background:#fff;min-width:0;width:100%}textarea{resize:vertical;min-height:95px}
+.search input{flex:2}.search select{flex:1}
+button{font:inherit;border:0;border-radius:9px;padding:13px 17px;background:var(--gold);color:#172033;font-weight:bold;cursor:pointer}
+section{padding:26px 16px}h2{font-size:23px;margin:0 0 18px}
+.categories{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.cat{background:#fff;border:1px solid #e7eaf0;border-radius:13px;padding:18px 8px;text-align:center;cursor:pointer;font-weight:bold}
+.cat .emoji{display:block;font-size:28px;margin-bottom:9px}
+.cat.active{border:2px solid var(--gold);background:#fffaf0}
+.notice{background:#fff7e6;border:1px solid #f0d7a3;padding:13px;border-radius:10px;font-size:13px;line-height:1.8}.add-form{display:none;background:#fff;border:1px solid #e7eaf0;border-radius:14px;padding:18px;margin-top:16px}.add-form.open{display:block}.form-grid{display:grid;grid-template-columns:1fr;gap:12px}.field label{display:block;font-weight:bold;font-size:14px;margin:0 0 7px}.field small{display:block;color:#687386;margin-top:5px}.field input[type=file]{padding:10px}.ad-tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.ad-tools button{padding:8px 10px;font-size:13px}.delete-ad{background:#fee2e2;color:#991b1b}.form-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.secondary{background:#eef1f6;color:#172033}.ad .contact{display:inline-block;margin-top:12px;color:#172033;text-decoration:none;background:#f4f6fa;padding:8px 10px;border-radius:8px;font-size:13px;font-weight:bold}.ad .description{line-height:1.8;margin-top:8px;white-space:pre-wrap}.ad .ad-image{width:100%;max-height:190px;object-fit:cover;border-radius:9px;margin-top:10px}@media(min-width:600px){.form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.field.full{grid-column:1/-1}}
+.results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ad{background:#fff;border-radius:12px;padding:16px;border:1px solid #e7eaf0}
+.ad .emoji{font-size:34px}.ad h3{margin:9px 0;font-size:17px}
+.price{color:#8b651e;font-weight:bold;font-size:18px}.meta{font-size:13px;color:#687386;margin-top:9px}
+footer{background:var(--navy);color:#fff;text-align:center;padding:25px 15px;line-height:2}
+footer strong{color:var(--gold)}
+@media(min-width:700px){.categories{grid-template-columns:repeat(6,1fr)}.results{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:360px){.categories{grid-template-columns:repeat(2,1fr)}.results{grid-template-columns:1fr}}
+/* تحسينات الواجهة وتجربة الاستخدام */
+html{scroll-behavior:smooth;scroll-padding-top:16px}
+body{line-height:1.6}
+header{position:sticky;top:0;z-index:20;box-shadow:0 4px 18px #07112622}
+nav>div:last-child{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 15% 15%,#3b5278 0,transparent 35%),linear-gradient(135deg,#101d36,#243b60 75%)}
+.hero p{max-width:620px;margin:0 auto}
+.search{background:#ffffff12;padding:10px;border:1px solid #ffffff24;border-radius:15px}
+.search input,.search select{border:0}
+button,.nav-add,.cat,.ad{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+button:hover,.nav-add:hover{filter:brightness(1.04);transform:translateY(-1px)}
+.cat:hover,.ad:hover{transform:translateY(-3px);box-shadow:0 12px 28px #101d3610}
+section{scroll-margin-top:80px}
+.ad{padding:0 0 16px;overflow:hidden;box-shadow:0 3px 14px #101d3608}
+.ad h3,.ad .price,.ad .meta,.ad .description,.ad .contact,.ad .ad-tools,.ad>.emoji,.ad>.badge-demo{margin-right:16px;margin-left:16px}
+.ad .ad-image{display:block;width:100%;height:205px;max-height:250px;object-fit:cover;border-radius:0;margin:0 0 12px}
+.ad .ad-photo{width:100%;height:205px;object-fit:cover;display:block;background:#e8edf5}
+.ad .contact{background:#e8f7ee;color:#17643a}
+.empty-state{text-align:center;background:#fff;border:1px dashed #cbd3e0;border-radius:14px;padding:24px;color:#687386;grid-column:1/-1}
+.photo-preview{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.photo-preview img{width:82px;height:82px;object-fit:cover;border-radius:10px;border:1px solid #d7dce5}
+.field small{line-height:1.7}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid #d9ad5577;outline-offset:2px}
+footer{margin-top:20px}
+@media(max-width:520px){header{padding:13px 12px}nav{align-items:flex-start}.logo{font-size:22px}nav>div:last-child{width:100%}nav a{margin:2px!important}.hero{padding:34px 13px}.search{display:grid;grid-template-columns:1fr}.search input,.search select{width:100%}.results{grid-template-columns:1fr}.ad .ad-image,.ad .ad-photo{height:220px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition:none!important}}
+
+</style>
+</head>
+<body>
+<header><nav><div class="logo">سوقنا <span>السعودي</span></div><div><a href="#categories">الأقسام</a><a href="#ads">الإعلانات</a><a href="#about">عن سوقنا</a><a class="nav-add" href="#add-ad" onclick="openAdForm(event)">＋ أضف إعلانك</a></div></nav></header>
+<div class="hero"><h1>سوقك في كل المملكة 🇸🇦</h1><p>بيع واشترِ واكتشف العروض في مدينتك<br>منصة واحدة تجمع مناطق السعودية</p>
+<div class="search"><input id="q" placeholder="ماذا تبحث عنه؟" aria-label="كلمة البحث"><select id="city" aria-label="اختر المدينة"><option value="">كل المدن</option><option>الرياض</option><option>جدة</option><option>مكة المكرمة</option><option>المدينة المنورة</option><option>تبوك</option><option>الدمام</option><option>أبها</option><option>حائل</option><option>بريدة</option><option>جازان</option><option>نجران</option><option>الطائف</option><option>الخبر</option><option>ينبع</option><option>الجوف</option></select><button onclick="filterAds()">بحث</button></div></div>
+<main class="wrap">
+<section id="categories"><h2>تصفح الأقسام</h2><div class="categories">
+<div class="cat active" data-cat=""><span class="emoji">🛍️</span>الكل</div><div class="cat" data-cat="سيارات"><span class="emoji">🚗</span>سيارات</div><div class="cat" data-cat="عقارات"><span class="emoji">🏠</span>عقارات</div><div class="cat" data-cat="إلكترونيات"><span class="emoji">📱</span>إلكترونيات</div><div class="cat" data-cat="أثاث"><span class="emoji">🛋️</span>أثاث</div><div class="cat" data-cat="خدمات"><span class="emoji">🧰</span>خدمات</div>
+</div></section>
+<section id="add-ad"><h2>أضف إعلانك</h2><p style="line-height:1.8">أدخل التفاصيل وأضف صورًا واضحة ليظهر إعلانك في معاينة هذه الصفحة. هذه نسخة تجريبية قبل ربط الموقع بقاعدة بيانات.</p><button type="button" onclick="openAdForm()">＋ أضف إعلانك الآن</button><form id="adForm" class="add-form" onsubmit="submitAd(event)"><h3 style="margin-top:0">بيانات الإعلان</h3><div class="form-grid"><div class="field"><label for="adTitle">عنوان الإعلان *</label><input id="adTitle" name="adTitle" required maxlength="90" placeholder="مثال: شقة للإيجار في الرياض"></div><div class="field"><label for="adCategory">القسم *</label><select id="adCategory" name="adCategory" required><option value="">اختر القسم</option><option>سيارات</option><option>عقارات</option><option>إلكترونيات</option><option>أثاث</option><option>خدمات</option><option>أخرى</option></select></div><div class="field"><label for="adCity">المدينة *</label><select id="adCity" name="adCity" required><option value="">اختر المدينة</option><option>الرياض</option><option>جدة</option><option>مكة المكرمة</option><option>المدينة المنورة</option><option>تبوك</option><option>الدمام</option><option>أبها</option><option>حائل</option><option>بريدة</option><option>جازان</option><option>نجران</option><option>الطائف</option><option>الخبر</option><option>ينبع</option><option>الجوف</option><option>أخرى</option></select></div><div class="field"><label for="adPrice">السعر بالريال</label><input id="adPrice" name="adPrice" type="number" min="0" step="0.01" placeholder="مثال: 1500"></div><div class="field"><label for="adPhone">رقم التواصل *</label><input id="adPhone" name="adPhone" required type="tel" maxlength="25" placeholder="رقم الجوال أو واتساب"></div><div class="field"><label for="adImage">رابط صورة الإعلان (اختياري)</label><input id="adImage" name="adImage" type="url" placeholder="https://example.com/photo.jpg"><small>رابط مباشر يبدأ بـ https://</small></div><div class="field"><label for="adImageFile">أو اختر صورة من جهازك</label><input id="adImageFile" name="adImageFile" type="file" accept="image/*" multiple><small>يمكن اختيار حتى 4 صور، بحجم إجمالي مناسب للتخزين المحلي. الصور تبقى على هذا المتصفح في النسخة التجريبية.</small><div id="photoPreview" class="photo-preview" aria-live="polite"></div></div><div class="field full"><label for="adDescription">وصف الإعلان *</label><textarea id="adDescription" name="adDescription" required maxlength="1200" placeholder="اكتب التفاصيل المهمة عن إعلانك"></textarea></div></div><div class="form-actions"><button type="submit">نشر الإعلان على الصفحة</button><button type="button" class="secondary" onclick="closeAdForm()">إلغاء</button></div><p id="formMessage" role="status" style="line-height:1.8"></p><p class="meta">تنبيه: هذه نسخة تجريبية؛ الإعلانات تُحفظ في المتصفح الحالي فقط، ولن تظهر للزوار الآخرين إلا بعد ربط الموقع بقاعدة بيانات.</p></form></section><section id="ads"><h2>اكتشف الإعلانات</h2><div class="notice">الإعلانات المعروضة حاليًا أمثلة للتصميم. جرّب البحث أو اختيار قسم، أو أضف إعلانك وصورك من النموذج. في هذه النسخة، الإعلانات محفوظة على جهازك فقط.</div><div class="results" id="results" style="margin-top:16px">
+<article class="ad" data-cat="سيارات" data-city="الرياض"><div class="emoji">🚙</div><h3>سيارة للبيع — مثال تجريبي</h3><div class="price">45,000 ريال</div><div class="meta">📍 الرياض · سيارات</div></article>
+<article class="ad" data-cat="عقارات" data-city="تبوك"><div class="emoji">🏡</div><h3>عقار للبيع — مثال تجريبي</h3><div class="price">650,000 ريال</div><div class="meta">📍 تبوك · عقارات</div></article>
+<article class="ad" data-cat="إلكترونيات" data-city="جدة"><div class="emoji">📱</div><h3>جهاز إلكتروني — مثال تجريبي</h3><div class="price">1,200 ريال</div><div class="meta">📍 جدة · إلكترونيات</div></article>
+<article class="ad" data-cat="أثاث" data-city="الدمام"><div class="emoji">🛋️</div><h3>أثاث منزلي — مثال تجريبي</h3><div class="price">800 ريال</div><div class="meta">📍 الدمام · أثاث</div></article>
+<article class="ad" data-cat="خدمات" data-city="مكة المكرمة"><div class="emoji">🧰</div><h3>خدمات عامة — مثال تجريبي</h3><div class="price">حسب الخدمة</div><div class="meta">📍 مكة المكرمة · خدمات</div></article>
+</div><p id="empty" hidden>لا توجد إعلانات تطابق بحثك. جرّب كلمة أخرى أو اختر مدينة مختلفة.</p></section>
+<section id="about"><h2>عن سوقنا السعودي</h2><p style="line-height:2">منصة عربية تجمع البائعين والمشترين في جميع مناطق المملكة، بتصميم بسيط وسهل الاستخدام على الجوال.</p></section>
+</main><footer><strong>سوقنا السعودي</strong><br>سوق واحد — خيارات أكثر — كل المملكة<br>© سوقنا السعودي</footer>
+<script>
+const STORAGE_KEY = "souqnaSaudiAds_v1";
+let selectedCat="";
+const categoryIcons = {"سيارات":"🚗","عقارات":"🏠","إلكترونيات":"📱","أثاث":"🛋️","خدمات":"🧰","أخرى":"📦"};
+function openAdForm(event){
+  if(event) event.preventDefault();
+  const form=document.getElementById("adForm");
+  form.classList.add("open");
+  document.getElementById("add-ad").scrollIntoView({behavior:"smooth",block:"start"});
+  document.getElementById("adTitle").focus({preventScroll:true});
+}
+function closeAdForm(){
+  document.getElementById("adForm").classList.remove("open");
+  document.getElementById("formMessage").textContent="";
+}
+function loadSavedAds(){
+  try{
+    const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
+    saved.forEach(ad=>renderAd(ad,true));
+  }catch(error){console.warn("تعذر تحميل الإعلانات المحفوظة",error);}
+}
+function renderAd(ad,isSaved){
+  const article=document.createElement("article");
+  article.className="ad";
+  article.dataset.cat=ad.category;
+  article.dataset.city=ad.city;
+  article.dataset.userAd="true";
+  const images=Array.isArray(ad.images)?ad.images:(ad.image?[ad.image]:[]);
+  const validImages=images.filter(src=>typeof src==="string" && (/^https:\/\//i.test(src)||/^data:image\//i.test(src)));
+  if(validImages.length){
+    const img=document.createElement("img");
+    img.className="ad-photo";
+    img.src=validImages[0];
+    img.alt=ad.title;
+    img.loading="lazy";
+    img.onerror=()=>{img.remove();};
+    article.appendChild(img);
+  } else {
+    const icon=document.createElement("div");
+    icon.className="emoji";
+    icon.textContent=categoryIcons[ad.category]||"📦";
+    article.appendChild(icon);
+  }
+  const title=document.createElement("h3");
+  title.textContent=ad.title;
+  article.appendChild(title);
+  const price=document.createElement("div");
+  price.className="price";
+  price.textContent=ad.price!=="" && ad.price!=null ? Number(ad.price).toLocaleString("en-US")+" ريال" : "السعر عند التواصل";
+  article.appendChild(price);
+  const meta=document.createElement("div");
+  meta.className="meta";
+  meta.textContent="📍 "+ad.city+" · "+ad.category;
+  article.appendChild(meta);
+  const desc=document.createElement("p");
+  desc.className="description";
+  desc.textContent=ad.description;
+  article.appendChild(desc);
+  const phone=String(ad.phone||"").replace(/[^0-9+]/g,"");
+  const contact=document.createElement("a");
+  contact.className="contact";
+  contact.href="https://wa.me/"+phone.replace(/^\+/,"");
+  contact.target="_blank";
+  contact.rel="noopener noreferrer";
+  contact.textContent="تواصل مع المعلن عبر واتساب";
+  article.appendChild(contact);
+  if(isSaved){
+    const savedTag=document.createElement("div");
+    savedTag.className="meta";
+    savedTag.textContent="إعلان مضاف من المستخدم";
+    article.appendChild(savedTag);
+  }
+  if(isSaved){
+    const tools=document.createElement("div");
+    tools.className="ad-tools";
+    const remove=document.createElement("button");
+    remove.type="button";
+    remove.className="delete-ad";
+    remove.textContent="حذف إعلاني من هذا الجهاز";
+    remove.addEventListener("click",()=>{
+      if(!confirm("هل تريد حذف هذا الإعلان من هذا المتصفح؟")) return;
+      try{
+        const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]").filter(item=>item.id!==ad.id);
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(saved));
+      }catch(error){}
+      article.remove();
+      filterAds();
+    });
+    tools.appendChild(remove);
+    article.appendChild(tools);
+  }
+  document.getElementById("results").prepend(article);
+}
+function submitAd(event){
+  event.preventDefault();
+  const form=document.getElementById("adForm");
+  if(!form.reportValidity()) return;
+  const fileInput=document.getElementById("adImageFile");
+  const files=Array.from(fileInput.files||[]);
+  if(files.length>4){document.getElementById("formMessage").textContent="اختر 4 صور كحد أقصى.";return;}
+  if(files.some(file=>!file.type.startsWith("image/"))){document.getElementById("formMessage").textContent="يرجى اختيار ملفات صور فقط.";return;}
+  if(files.reduce((sum,file)=>sum+file.size,0)>1800000){document.getElementById("formMessage").textContent="حجم الصور الإجمالي كبير. اختر صورًا أصغر، بإجمالي أقل من 1.8 ميجابايت.";return;}
+  const link=document.getElementById("adImage").value.trim();
+  if(link && !/^https:\/\//i.test(link)){document.getElementById("formMessage").textContent="رابط الصورة يجب أن يبدأ بـ https://";return;}
+  const finishSave=(fileImages)=>{
+    const images=[...fileImages];
+    if(link) images.unshift(link);
+    const ad={
+      id:Date.now(),
+      title:document.getElementById("adTitle").value.trim(),
+      category:document.getElementById("adCategory").value,
+      city:document.getElementById("adCity").value,
+      price:document.getElementById("adPrice").value,
+      phone:document.getElementById("adPhone").value.trim(),
+      images,
+      description:document.getElementById("adDescription").value.trim()
+    };
+    try{
+      const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||"[]");
+      saved.push(ad);
+      localStorage.setItem(STORAGE_KEY,JSON.stringify(saved));
+    }catch(error){
+      document.getElementById("formMessage").textContent="تعذر حفظ الإعلان. قلّل حجم الصور أو احذف بعض الإعلانات المحفوظة.";
+      return;
+    }
+    renderAd(ad,true);
+    form.reset();
+    document.getElementById("photoPreview").replaceChildren();
+    document.getElementById("formMessage").textContent="تمت إضافة الإعلان وحفظه في هذا المتصفح فقط.";
+    selectedCat="";
+    document.querySelectorAll(".cat").forEach(c=>c.classList.toggle("active",c.dataset.cat===""));
+    filterAds();
+    document.getElementById("ads").scrollIntoView({behavior:"smooth",block:"start"});
+  };
+  if(files.length){
+    Promise.all(files.map(file=>new Promise((resolve,reject)=>{
+      const reader=new FileReader();
+      reader.onload=()=>resolve(String(reader.result));
+      reader.onerror=reject;
+      reader.readAsDataURL(file);
+    }))).then(finishSave).catch(()=>{document.getElementById("formMessage").textContent="تعذرت قراءة إحدى الصور. حاول اختيارها من جديد.";});
+  }else finishSave([]);
+}
+function previewSelectedPhotos(){
+  const preview=document.getElementById("photoPreview");
+  preview.replaceChildren();
+  const files=Array.from(document.getElementById("adImageFile").files||[]).slice(0,4);
+  files.forEach(file=>{
+    if(!file.type.startsWith("image/")) return;
+    const img=document.createElement("img");
+    img.alt="معاينة الصورة المختارة";
+    img.src=URL.createObjectURL(file);
+    preview.appendChild(img);
+  });
+}
+document.getElementById("adImageFile").addEventListener("change",previewSelectedPhotos);
+
+loadSavedAds();
+document.querySelectorAll(".cat").forEach(el=>{el.addEventListener("click",()=>{selectedCat=el.dataset.cat;document.querySelectorAll(".cat").forEach(c=>c.classList.toggle("active",c===el));filterAds();});});
+function filterAds(){const q=document.getElementById("q").value.trim().toLowerCase();const city=document.getElementById("city").value;let count=0;document.querySelectorAll(".ad").forEach(ad=>{const show=ad.innerText.toLowerCase().includes(q)&&(!city||ad.dataset.city===city)&&(!selectedCat||ad.dataset.cat===selectedCat);ad.hidden=!show;if(show)count++;});document.getElementById("empty").hidden=count>0;document.getElementById("empty").className=count>0?"":"empty-state";}
+document.getElementById("q").addEventListener("keydown",e=>{if(e.key==="Enter")filterAds();});
+</script>
+</body>
+</html>
